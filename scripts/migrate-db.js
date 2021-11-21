@@ -43,6 +43,20 @@ async function migrate() {
         ON UPDATE CURRENT_TIMESTAMP
     )
     `)
+    await query(`
+    CREATE TABLE IF NOT EXISTS rooms (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      username TEXT,
+      room TEXT NOT NULL,
+      time TIME NOT NULL,
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at 
+        TIMESTAMP 
+        NOT NULL 
+        DEFAULT CURRENT_TIMESTAMP 
+        ON UPDATE CURRENT_TIMESTAMP
+    )
+    `)
     console.log('migration ran successfully')
   } catch (e) {
     console.error('could not run migration, double check your credentials.')

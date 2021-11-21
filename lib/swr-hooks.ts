@@ -28,3 +28,13 @@ export function useAuth() {
     username,
   }
 }
+
+export function useRooms(username: string) {
+  const { data, error } = useSWR(`/api/get-rooms?username=${username}`, fetcher)
+
+  return {
+    rooms: data,
+    isLoading: !error && !data,
+    isError: error,
+  }
+}

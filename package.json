@@ -5,7 +5,9 @@
     "build": "next build",
     "start": "next start",
     "mysql": "cd mysql && docker-compose up --build",
-    "migrate": "node scripts/migrate-db.js"
+    "wipe-mysql": "cd mysql && docker-compose down --volumes",
+    "migrate": "node scripts/migrate-db.js",
+    "migrate-rooms": "node scripts/migrate-available-rooms.js"
   },
   "dependencies": {
     "bad-words": "^3.0.4",
