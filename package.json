@@ -4,6 +4,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "mysql": "cd mysql && docker-compose up --build",
     "migrate": "node scripts/migrate-db.js"
   },
   "dependencies": {
