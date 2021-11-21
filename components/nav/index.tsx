@@ -1,6 +1,20 @@
 import Link from 'next/link'
 import Container from '@/components/container'
 import ButtonLink from '@/components/button-link'
+import Button from "@/components/button";
+import Router from "next/router";
+
+function logoutHandler(e) {
+  e.preventDefault()
+  try {
+    if (process.browser) {
+      localStorage.removeItem('user');
+    }
+    Router.push('/')
+  } catch (e) {
+    throw Error(e.message)
+  }
+}
 
 export default function Nav({ title = 'Entries' }) {
   return (
@@ -11,6 +25,9 @@ export default function Nav({ title = 'Entries' }) {
             <a className="font-bold text-3xl">{title}</a>
           </Link>
           <ButtonLink href="/new">New Entry</ButtonLink>
+          <Button onClick={logoutHandler}>
+            Logout
+          </Button>
         </div>
       </nav>
     </Container>
