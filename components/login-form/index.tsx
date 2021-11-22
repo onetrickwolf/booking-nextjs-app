@@ -5,7 +5,6 @@ import Button from '@/components/button'
 
 export default function LoginForm() {
   const [login, setLogin] = useState('')
-  const [content, setContent] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
   async function submitHandler(e) {
