@@ -2,15 +2,24 @@ import Room from './room'
 
 function Rooms({ rooms, allowDelete = false, allowBook = false}) {
   if (rooms) {
-    return (
-      <div>
-        {rooms.map((e) => (
-          <div key={e.id} className="py-2">
-            <Room id={e.id} room={e.room} time={e.time} user={e.username} allowDelete={allowDelete} allowBook={allowBook} />
-          </div>
-        ))}
-      </div>
-    )
+    if(rooms.length > 0) {
+      return (
+        <div>
+          {rooms.map((e) => (
+            <div key={e.id} className="py-2">
+              <Room id={e.id} room={e.room} time={e.time} username={e.username} allowDelete={allowDelete}
+                    allowBook={allowBook} />
+            </div>
+          ))}
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <div className="text-red-600">No rooms!</div>
+        </div>
+      )
+    }
   } else {
     return null
   }

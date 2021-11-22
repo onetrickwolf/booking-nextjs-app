@@ -36,7 +36,7 @@ export default function IndexPage() {
         <div>
           <Nav />
           <Container>
-            <div className="text-red-600">Welcome {username}!</div>
+            <div className="text-green-600">Welcome {username}!</div>
             <div className="font-bold text-xl underline">My Rooms</div>
             <Rooms rooms={rooms.myRooms} allowDelete={true} />
             <div className="font-bold text-xl underline">Booked</div>
