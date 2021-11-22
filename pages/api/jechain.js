@@ -24,7 +24,7 @@ class Block {
 class Blockchain {
   constructor() {
     this.chain = [new Block()];
-    this.difficulty = 1;
+    this.difficulty = 3;
     this.blockTime = 30000;
   }
 
