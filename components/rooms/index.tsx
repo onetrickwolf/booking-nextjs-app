@@ -7,7 +7,7 @@ function Rooms({ rooms, allowDelete = false, allowBook = false}) {
         <div>
           {rooms.map((e) => (
             <div key={e.id} className="py-2">
-              <Room id={e.id} room={e.room} time={e.time} username={e.username} allowDelete={allowDelete}
+              <Room id={e.id} room={e.room} time={e.time} roomOwner={e.username} allowDelete={allowDelete}
                     allowBook={allowBook} />
             </div>
           ))}

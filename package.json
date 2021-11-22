@@ -7,7 +7,8 @@
     "mysql": "cd mysql && docker-compose up --build",
     "wipe-mysql": "cd mysql && docker-compose down --volumes",
     "migrate": "node scripts/migrate-db.js",
-    "migrate-rooms": "node scripts/migrate-available-rooms.js"
+    "migrate-rooms": "node scripts/migrate-available-rooms.js",
+    "lint": "next lint"
   },
   "dependencies": {
     "bad-words": "^3.0.4",
@@ -23,6 +24,8 @@
   "devDependencies": {
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.55",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "12.0.4",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^1.7.4",

@@ -10,11 +10,9 @@ import { useAuth, useRooms } from '@/lib/swr-hooks'
 export default function IndexPage() {
 
   const { username, isLoggedIn } = useAuth()
+  const { rooms, isLoading } = useRooms(username)
 
   if (isLoggedIn) {
-
-    const { rooms, isLoading } = useRooms(username)
-
     if (isLoading) {
       return (
         <div>

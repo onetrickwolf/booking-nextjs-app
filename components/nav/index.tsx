@@ -24,7 +24,6 @@ export default function Nav({ title = 'Booking' }) {
           <Link href="/">
             <a className="font-bold text-3xl">{title}</a>
           </Link>
-          <ButtonLink href="/new">New Entry</ButtonLink>
           <Button onClick={logoutHandler}>
             Logout
           </Button>

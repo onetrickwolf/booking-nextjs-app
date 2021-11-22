@@ -4,9 +4,10 @@ import { mutate } from 'swr'
 import Button from '@/components/button'
 import { useAuth } from "@/lib/swr-hooks";
 
-function Room({ id, room, time, username, allowDelete, allowBook }) {
+function Room({ id, room, time, roomOwner, allowDelete, allowBook }) {
   const [deleting, setDeleting] = useState(false)
   const [booking, setBooking] = useState(false)
+  const { username } = useAuth();
 
   async function deleteRoom() {
     setDeleting(true)
@@ -26,7 +27,6 @@ function Room({ id, room, time, username, allowDelete, allowBook }) {
   }
 
   async function bookRoom() {
-    const { username } = useAuth()
     setBooking(true)
     const res = await fetch('/api/book-room', {
       method: 'PATCH',
@@ -47,7 +47,7 @@ function Room({ id, room, time, username, allowDelete, allowBook }) {
   return (
     <div>
       <div className="flex items-center">
-        <div className="font-bold">Room {room} reserved for {time}pm {username && 'by'} {username}</div>
+        <div className="font-bold">Room {room} reserved for {time}pm {roomOwner && 'by'} {roomOwner}</div>
         <div className="flex ml-4">
           {allowDelete &&
           <Button
