@@ -16,7 +16,7 @@ function logoutHandler(e) {
   }
 }
 
-export default function Nav({ title = 'Entries' }) {
+export default function Nav({ title = 'Booking' }) {
   return (
     <Container className="py-4">
       <nav>

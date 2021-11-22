@@ -5,13 +5,13 @@ const handler: NextApiHandler = async (req, res) => {
   const { username } = req.query
   try {
     const unbooked = await query(`
-      SELECT room,time
+      SELECT id,room,time
       FROM rooms
       WHERE username IS NULL
     `)
 
     const booked = await query(`
-        SELECT username,room,time
+        SELECT id,username,room,time
         FROM rooms
         WHERE username IS NOT NULL AND NOT username = ?
     `,
@@ -20,7 +20,7 @@ const handler: NextApiHandler = async (req, res) => {
 
     const myRooms = await query(
       `
-          SELECT room,time
+          SELECT id,room,time
           FROM rooms 
           WHERE username = ?
       `,

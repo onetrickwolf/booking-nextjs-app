@@ -2,10 +2,10 @@ import Skeleton from 'react-loading-skeleton'
 
 import Nav from '@/components/nav'
 import Container from '@/components/container'
-import Entries from '@/components/entries'
+import Rooms from '@/components/rooms'
 import LoginForm from "@/components/login-form";
 
-import { useEntries, useAuth, useRooms } from '@/lib/swr-hooks'
+import { useAuth, useRooms } from '@/lib/swr-hooks'
 
 export default function IndexPage() {
 
@@ -13,8 +13,7 @@ export default function IndexPage() {
 
   if (isLoggedIn) {
 
-    const { entries, isLoading } = useEntries()
-    const { rooms, isLoadingRooms } = useRooms(username)
+    const { rooms, isLoading } = useRooms(username)
 
     if (isLoading) {
       return (
@@ -37,8 +36,13 @@ export default function IndexPage() {
         <div>
           <Nav />
           <Container>
-            Welcome {username}!
-            <Entries entries={entries} />
+            <div className="text-red-600">Welcome {username}!</div>
+            <div className="font-bold text-xl underline">My Rooms</div>
+            <Rooms rooms={rooms.myRooms} allowDelete={true} />
+            <div className="font-bold text-xl underline">Booked</div>
+            <Rooms rooms={rooms.booked} />
+            <div className="font-bold text-xl underline">Free Rooms</div>
+            <Rooms rooms={rooms.unbooked} allowBook={true} />
           </Container>
         </div>
       )
