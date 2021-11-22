@@ -1,6 +1,8 @@
 import { NextApiHandler } from 'next'
 import { query } from '../../lib/db'
 
+import { log } from './jechain-singleton';
+
 const handler: NextApiHandler = async (req, res) => {
   const { id, username } = req.body
   try {
@@ -18,6 +20,8 @@ const handler: NextApiHandler = async (req, res) => {
       `,
       [username, id]
     )
+
+    log({ action: 'booked', username, id });
 
     return res.json(results)
   } catch (e) {

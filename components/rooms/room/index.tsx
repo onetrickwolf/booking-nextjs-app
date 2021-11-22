@@ -17,7 +17,8 @@ function Room({ id, room, time, roomOwner, allowDelete, allowBook }) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id
+        id,
+        username
       }),
     })
     let json = await res.json()

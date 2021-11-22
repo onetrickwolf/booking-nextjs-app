@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Container from '@/components/container'
 import Button from "@/components/button";
 import Router from "next/router";
+import ButtonLink from "@/components/button-link";
 
 function logoutHandler(e) {
   e.preventDefault()
@@ -23,6 +24,7 @@ export default function Nav({ title = 'Booking' }) {
           <Link href="/">
             <a className="font-bold text-3xl">{title}</a>
           </Link>
+          <ButtonLink href="/chain">View Chain</ButtonLink>
           <Button onClick={logoutHandler}>
             Logout
           </Button>

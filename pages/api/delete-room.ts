@@ -1,8 +1,10 @@
 import { NextApiHandler } from 'next'
 import { query } from '../../lib/db'
 
+import { log } from './jechain-singleton';
+
 const handler: NextApiHandler = async (req, res) => {
-  const { id } = req.body
+  const { id, username } = req.body
   try {
     if (!id) {
       return res
@@ -18,6 +20,8 @@ const handler: NextApiHandler = async (req, res) => {
       `,
       [id]
     )
+
+    log({ action: 'deleted', username, id });
 
     return res.json(results)
   } catch (e) {

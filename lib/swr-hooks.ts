@@ -32,3 +32,13 @@ export function useRooms(username: string) {
     isError: error,
   }
 }
+
+export function useChain() {
+  const { data, error } = useSWR(`/api/view-chain`, fetcher)
+
+  return {
+    chain: data,
+    isLoading: !error && !data,
+    isError: error,
+  }
+}
