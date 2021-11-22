@@ -4,7 +4,7 @@ Simple booking system using Next.js
 
 ## Demo
 
-### [https://ec2-54-197-30-158.compute-1.amazonaws.com:3000](https://ec2-54-197-30-158.compute-1.amazonaws.com/)
+### [http://ec2-54-197-30-158.compute-1.amazonaws.com:3000](http://ec2-54-197-30-158.compute-1.amazonaws.com/)
 
 ## Configuration
 
